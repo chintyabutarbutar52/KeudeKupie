@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keude Kupie — Premium Coffee</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ===== SPLASH SCREEN ===== -->
+    <div id="splash-screen" class="splash-screen">
+      <div class="splash-content">
+        <div class="splash-logo">☕</div>
+        <div class="splash-title">Keude Kupie</div>
+        <div class="splash-sub">UK &amp; Gayo</div>
+      </div>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+      <div class="logo-wrap">
+        <img
+          class="logo-img"
+          src="keude_kupie_logo (1).png"
+          alt="logo"
+        />
+        <div class="logo-text">
+          Keude Kupie
+          <small>UK &amp; Gayo</small>
+        </div>
+        <div id="store-status-badge" class="store-status-badge open">
+          <span class="status-dot open"></span>Buka
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" onclick="goPage('keranjang', 'nav-keranjang')">
+          🛒
+        </button>
+        <button class="icon-btn" onclick="toggleMenu()">⋯</button>
+      </div>
+    </header>
+
+    <!-- DROPDOWN -->
+    <div id="top-menu" class="top-menu">
+      <div
+        onclick="
+          goPage('home', 'nav-home');
+          toggleMenu();
+        "
+      >
+        🏠&nbsp; Home
+      </div>
+      <div
+        onclick="
+          goPage('menu', 'nav-menu');
+          toggleMenu();
+        "
+      >
+        ☕&nbsp; Menu
+      </div>
+      <div
+        onclick="
+          goPage('keranjang', 'nav-keranjang');
+          toggleMenu();
+        "
+      >
+        🛒&nbsp; Keranjang
+      </div>
+      <div
+        onclick="
+          goPage('promo', 'nav-promo');
+          toggleMenu();
+        "
+      >
+        🎁&nbsp; Promo
+      </div>
+      <div
+        onclick="
+          goPage('tentang', 'nav-tentang');
+          toggleMenu();
+        "
+      >
+        📖&nbsp; Tentang
+      </div>
+      <div
+        onclick="
+          goPage('tim', null);
+          toggleMenu();
+        "
+      >
+        👥&nbsp; Tim Kami
+      </div>
+    </div>
+
+    <!-- ============ HOME ============ -->
+    <div id="home" class="page active-page">
+      <section class="hero">
+        <div
+          class="hero-img"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1501339817308-ff40072c5fd8?w=900&quot;);
+          "
+        ></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <span class="hero-badge">☕ Gayo Signature</span>
+          <h1>Rasa Kopi<br /><em>yang Bercerita</em></h1>
+          <p>Diseduh dari biji terbaik dataran tinggi Gayo &amp; UK</p>
+          <button class="btn-hero" onclick="goPage('menu', 'nav-menu')">
+            Jelajahi Menu →
+          </button>
+        </div>
+      </section>
+
+      <div class="search-wrap">
+        <div class="search-bar" onclick="goToMenuSearch()">
+          <span>🔍</span> Cari kopi, makanan, minuman...
+        </div>
+      </div>
+
+      <div class="section-pad">
+        <div class="section-header">
+          <div class="section-label">Menu <em>Favorit</em></div>
+          <div class="section-sub" onclick="goPage('menu', 'nav-menu')">
+            Lihat semua →
+          </div>
+        </div>
+        <div class="rek-scroll" id="rek-scroll"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-pad" style="padding-top: 0">
+        <div class="section-label" style="margin-bottom: 14px">
+          Kenapa <em>Kami?</em>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card reveal reveal-delay-1">
+            <div class="stat-num" data-count="100" data-suffix="%">0%</div>
+            <div class="stat-label">Kebutuhan Mahasiswa</div>
+          </div>
+          <div class="stat-card reveal reveal-delay-2">
+            <div class="stat-num" data-count="10" data-suffix="+">0+</div>
+            <div class="stat-label">Tahun Berdiri</div>
+          </div>
+          <div class="stat-card reveal reveal-delay-3">
+            <div class="stat-num">Halal</div>
+            <div class="stat-label">Sudah Bersertifikat BPOM</div>
+          </div>
+          <div class="stat-card reveal reveal-delay-4">
+            <div class="stat-num" data-count="80" data-suffix="" data-divide="10" data-prefix="⭐ ">⭐ 0</div>
+            <div class="stat-label">Rating Pelanggan</div>
+          </div>
+          <div class="stat-card harga-text">
+            <div class="stat-num">
+              Dan yang Pasti Harga Sudah Sangat Terjangkau
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- TESTIMONIAL -->
+      <div class="section-pad" style="padding-top: 0; padding-bottom: 0;">
+        <div class="section-header">
+          <div class="section-label">Kata <em>Pelanggan</em></div>
+        </div>
+      </div>
+      <div class="testimonial-section">
+        <div class="testimonial-scroll" id="testimonial-scroll"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- STAMP CARD LOYALITAS -->
+      <div class="section-pad" style="padding-bottom: 8px; padding-top: 0;">
+        <div class="section-label" style="margin-bottom: 14px;">Kartu <em>Loyalitas</em></div>
+      </div>
+      <div style="padding: 0 18px 28px;" id="stamp-card-home"></div>
+      <!-- Footer — hanya di Home -->
+      <footer class="site-footer">
+        <div class="site-footer-logo">☕ Keude Kupie</div>
+        <div class="site-footer-tagline">UK & Gayo — Kopi Terbaik dari Aceh</div>
+        <div class="site-footer-copy">© 2026 Keude Kupie · Dibuat dengan ❤️ di Medan</div>
+      </footer>
+    </div>
+
+    <!-- ============ MENU ============ -->
+    <div id="menu" class="page">
+      <!-- Closed banner -->
+      <div id="closed-banner" class="closed-banner" style="display: none"></div>
+
+      <div style="padding: 18px 18px 0">
+        <div class="section-label" style="margin-bottom: 14px">
+          Semua <em>Menu</em>
+        </div>
+        <!-- Search input -->
+        <div class="menu-search-wrap">
+          <span class="menu-search-icon">🔍</span>
+          <input
+            id="menu-search-input"
+            class="menu-search-input"
+            type="text"
+            placeholder="Cari nama menu..."
+            autocomplete="off"
+          />
+          <button
+            id="menu-search-clear"
+            class="menu-search-clear"
+            style="display: none"
+          >
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <div class="cats" id="cat-pills"></div>
+      <!-- SORT ROW -->
+      <div class="menu-sort-row" id="menu-sort-row">
+        <span style="font-size:11px;color:var(--muted);letter-spacing:0.06em;white-space:nowrap;">Urutkan:</span>
+        <button class="sort-btn active" onclick="setSort('default')" id="sort-default">Default</button>
+        <button class="sort-btn" onclick="setSort('asc')" id="sort-asc">↑ Termurah</button>
+        <button class="sort-btn" onclick="setSort('desc')" id="sort-desc">↓ Termahal</button>
+        <button class="sort-btn" onclick="setSort('rating')" id="sort-rating">⭐ Rating</button>
+      </div>
+      <div class="section-pad" style="padding-top: 0">
+        <div class="menu-grid" id="menu-grid"></div>
+      </div>
+    </div>
+
+    <!-- ============ KERANJANG ============ -->
+    <div id="keranjang" class="page">
+      <div class="section-pad">
+        <div class="section-label" style="margin-bottom: 18px">
+          Pesanan <em>Kamu</em>
+        </div>
+        <div id="cart-list"></div>
+        <div id="cart-total-block" style="display: none">
+          <!-- Voucher input -->
+          <div class="voucher-wrap">
+            <div id="voucher-badge-wrap"></div>
+            <div class="voucher-input-row">
+              <input
+                id="voucher-input"
+                class="voucher-input"
+                type="text"
+                placeholder="Punya kode voucher?"
+              />
+              <button class="btn-pakai-voucher" onclick="applyVoucher()">
+                Pakai
+              </button>
+            </div>
+            <div id="voucher-msg" class="voucher-msg"></div>
+          </div>
+
+          <div class="cart-total">
+            <div class="cart-total-row">
+              <span>Subtotal</span><span id="subtotal-val">Rp 0</span>
+            </div>
+            <div
+              class="cart-total-row"
+              id="discount-row"
+              style="display: none; color: var(--gold)"
+            >
+              <span id="discount-label">Diskon</span
+              ><span id="discount-val">− Rp 0</span>
+            </div>
+            <div class="cart-total-row total">
+              <span>Total</span><span id="total-val">Rp 0</span>
+            </div>
+          </div>
+          <button class="btn-wa" onclick="openCheckoutModal()">
+            <span>💬</span> Pesan via WhatsApp
+          </button>
+        </div>
+
+        <!-- History section -->
+        <div id="history-section"></div>
+      </div>
+    </div>
+
+    <!-- ============ TENTANG ============ -->
+    <div id="tentang" class="page">
+      <div class="about-hero">
+        <div
+          class="about-hero-img"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&quot;);
+          "
+        ></div>
+        <div class="about-hero-title">Tentang <em>&nbsp;Kami</em></div>
+      </div>
+      <div class="about-body">
+        <p>
+          Keuda Kupie adalah rumah bagi para pencinta kopi sejati. Lahir dari
+          kecintaan mendalam terhadap biji kopi Arabika pilihan dari dataran
+          tinggi Gayo, Aceh.
+        </p>
+        <p>
+          Setiap cangkir yang kami sajikan membawa cerita panjang — dari tangan
+          para petani, melalui proses roasting yang teliti, hingga diseduh
+          dengan penuh perhatian untuk Anda.
+        </p>
+        <p
+          style="
+            color: var(--gold);
+            font-family: var(--serif);
+            font-size: 15px;
+            font-style: italic;
+          "
+        >
+          "Kopi bukan sekadar minuman. Ia adalah percakapan antara rasa dan
+          kenangan."
+        </p>
+        <div class="about-stats" style="margin-top: 20px">
+          <div class="stat-card">
+            <div class="stat-num">Gayo</div>
+            <div class="stat-label">Asal Biji Kopi</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">UK</div>
+            <div class="stat-label">Standar Kualitas</div>
+          </div>
+        </div>
+
+        <!-- Jam Operasional -->
+        <div
+          class="section-label"
+          style="font-size: 18px; margin-top: 28px; margin-bottom: 14px"
+        >
+          Jam <em>Operasional</em>
+        </div>
+        <table class="jam-ops-table">
+          <thead>
+            <tr>
+              <th>Hari</th>
+              <th>Buka</th>
+              <th>Tutup</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Senin – Sabtu</td>
+              <td>07:00</td>
+              <td>22:00</td>
+            </tr>
+            <tr>
+              <td>Minggu</td>
+              <td>08:00</td>
+              <td>20:00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button class="btn-kenali-tim" onclick="goPage('tim', null)">
+          Kenali Tim Pembuat →
+        </button>
+      </div>
+
+      <!-- WA CONTACT BUTTON -->
+      <div style="padding: 0 18px 24px; text-align:center;">
+        <a class="btn-wa-tentang" href="https://wa.me/6281248422469" target="_blank" rel="noopener">
+          💬 Hubungi Kami via WhatsApp
+        </a>
+      </div>
+
+      <!-- GALERI FOTO -->
+      <div style="padding: 0 18px 8px;">
+        <div class="gallery-label">📸 Suasana Kedai</div>
+      </div>
+      <div class="gallery-grid" id="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox(0)">
+          <img src="WhatsApp Image 2026-05-23 at 17.12.50.jpeg" alt="Suasana Kedai">
+          <div class="gallery-item-overlay"></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(1)">
+          <img src="WhatsApp Image 2026-05-23 at 17.14.21.jpeg" alt="Suasana Kedai 2">
+          <div class="gallery-item-overlay"></div>
+        </div>
+      </div>
+
+      <!-- FAQ ACCORDION -->
+      <div style="padding: 0 18px 10px;">
+        <div class="section-label" style="font-size:18px;margin-bottom:14px;">FAQ — <em>Sering Ditanya</em></div>
+      </div>
+      <div class="faq-section">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">Apakah bisa pesan delivery?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">Saat ini kami melayani pemesanan via WhatsApp. Hubungi kami dan kami akan bantu atur pengiriman atau pickup sesuai kebutuhan kamu.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">Berapa minimum order untuk delivery?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">Minimum order untuk delivery adalah Rp 30.000. Untuk info ongkos kirim dan jangkauan area, silakan tanyakan langsung via WhatsApp kami.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">Apakah voucher bisa digabung?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">Sayangnya belum bisa. Hanya satu voucher yang bisa digunakan per transaksi. Pilih voucher yang memberikan keuntungan terbesar untuk pembelianmu.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">Kopi Gayo berasal dari mana tepatnya?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">Biji kopi kami berasal dari dataran tinggi Gayo, Aceh Tengah — salah satu penghasil kopi Arabika terbaik di Indonesia dengan ketinggian 1.200–1.700 mdpl. Kopi dipetik merah untuk menjaga kualitas rasa.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">Bagaimana cara menukarkan stamp loyalitas?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">Kumpulkan 10 stamp dari setiap pembelian (1 transaksi = 1 stamp). Setelah penuh, kamu bisa tukar dengan 1 kopi gratis pilihan. Tekan tombol "Tukar Reward" di halaman Home saat stamp sudah penuh!</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">Apa saja metode pembayaran yang diterima?<span class="faq-icon">+</span></div>
+          <div class="faq-answer">Kami menerima tunai, transfer bank, GoPay, OVO, DANA, dan ShopeePay. Konfirmasi metode pembayaran saat chat WhatsApp ya!</div>
+        </div>
+      </div>
+      <div class="lokasi-container">
+        <h3 class="lokasi-title">Lokasi Kami</h3>
+        
+        <a href="https://www.google.com/maps/search/?api=1&query=Keude+Kupie+Ulee+Kareng+%26+Gayo+Jl.+Dr.+Mansyur+Medan" target="_blank" class="lokasi-card">
+           <div class="lokasi-icon">📍</div>
+           <div class="lokasi-info">
+              <h4>Keude Kupie UK & Gayo</h4>
+              <p>Buka rute di Google Maps</p>
+           </div>
+           <div class="lokasi-arrow">→</div>
+        </a>
+      </div>
+        </a>
+      </div>
+        </a>
+      </div>
+      </div>
+    </div>
+
+    <!-- ============ TIM KAMI ============ -->
+    <div id="tim" class="page">
+      <!-- Hero Banner -->
+      <div class="about-hero tim-hero">
+        <div
+          class="about-hero-img"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800');
+          "
+        ></div>
+        <div class="about-hero-title">Tim <em>&nbsp;Kami</em></div>
+      </div>
+ 
+      <div class="tim-subtitle">Dibuat dengan ☕ dan semangat oleh:</div>
+ 
+      <!-- Kartu Tim -->
+      <div class="tim-cards">
+ 
+        <!-- Anggota 1 -->
+        <div class="tim-card">
+          <div class="tim-avatar-wrap">
+            <img src="WhatsApp Image 2026-05-21 at 13.58.08.jpeg" alt="Glenn" class="tim-photo">
+          </div>
+          <div class="tim-info">
+            <div class="tim-name">Glenn Kristian Tampubolon</div>
+            <div class="tim-role-badge">Frontend Developer</div>
+            <p class="tim-desc">
+              Membangun seluruh struktur dan logika website — mulai dari sistem pemesanan, keranjang belanja, integrasi WhatsApp, hingga fitur voucher dan riwayat pesanan.
+            </p>
+            <a class="tim-ig" href="https://www.instagram.com/glennkristian_07?igsh=aTcycmNvNzB0bG50" target="_blank" rel="noopener">
+              <span class="tim-ig-icon" style="display: inline-flex; align-items: center; margin-right: 6px;">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+  </svg>
+</span> @[glennkristian_07]
+            </a>
+          </div>
+        </div>
+ 
+        <!-- Anggota 2 -->
+        <div class="tim-card">
+          <div class="tim-avatar-wrap">
+            <img src="WhatsApp Image 2026-05-21 at 12.58.33.jpeg" alt="Cintya Evelyn" class="tim-photo">
+          </div>
+          <div class="tim-info">
+            <div class="tim-name">Cintya Evelyn Butarbutar</div>
+            <div class="tim-role-badge">UI/UX Designer</div>
+            <p class="tim-desc">
+              Merancang tampilan visual website dari nol — tema gelap elegan, palet warna gold, tipografi, animasi, dan memastikan pengalaman pengguna terasa nyaman di semua ukuran layar.
+            </p>
+            <a class="tim-ig" href="https://www.instagram.com/cchintyaavln?igsh=cWxwejZrYTNhc3R3" target="_blank" rel="noopener">
+              <span class="tim-ig-icon" style="display: inline-flex; align-items: center; margin-right: 6px;">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+  </svg>
+</span> @[cchintyaavln]
+            </a>
+          </div>
+        </div>
+ 
+        <!-- Anggota 3 -->
+        <div class="tim-card">
+          <div class="tim-avatar-wrap">
+            <img src="WhatsApp Image 2026-05-21 at 12.57.55.jpeg" alt="Marthin Alexander Sitorus" class="tim-photo">
+          </div>
+          <div class="tim-info">
+            <div class="tim-name">Marthin Alexander Sitorus</div>
+            <div class="tim-role-badge">Content &amp; Product Manager</div>
+            <p class="tim-desc">
+              Mengelola seluruh data menu, menulis deskripsi produk, menyusun konten promo dan voucher, serta memastikan informasi yang tampil di website akurat dan menarik.
+            </p>
+            <a class="tim-ig" href="https://www.instagram.com/alexmarthinsitorus?igsh=MXd5bDM2dzJmMmdpag%3D%3D&utm_source=qr" target="_blank" rel="noopener">
+              <span class="tim-ig-icon" style="display: inline-flex; align-items: center; margin-right: 6px;">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+  </svg>
+</span> @[alexmarthinsitorus]
+            </a>
+          </div>
+        </div>
+ 
+      </div>
+ 
+      <div class="tim-footer">
+        © 2026 Keude Kupie — <em>Dibuat dengan penuh semangat.</em>
+      </div>
+    </div>
+ 
+    <!-- ============ PROMO ============ -->
+    <div id="promo" class="page">
+      <div class="promo-header">
+        <div class="section-label">Promo & <em>Voucher</em></div>
+        <div class="promo-sub">Hemat lebih banyak dengan kode spesial kami</div>
+      </div>
+
+      <div class="promo-banner">
+        <div class="promo-banner-tag">🔥 Promo Spesial</div>
+        <h2>Diskon <em>20%</em><br />untuk Pelanggan Baru</h2>
+        <p>Berlaku untuk semua menu. Min. belanja Rp 30.000</p>
+        <div class="promo-banner-code">
+          <span>NEWKUPIE</span>
+          <button
+            class="btn-copy"
+            id="btn-copy-main"
+            onclick="copyKode('NEWKUPIE', 'btn-copy-main')"
+          >
+            Salin
+          </button>
+        </div>
+      </div>
+
+      <div class="section-pad" style="padding-bottom: 10px">
+        <div class="section-label" style="font-size: 17px; margin-bottom: 14px">
+          Semua <em>Voucher</em>
+        </div>
+      </div>
+
+      <div class="voucher-list">
+        <div class="voucher-card">
+          <div class="voucher-strip gold"></div>
+          <div class="voucher-inner">
+            <div class="voucher-left">
+              <div class="voucher-type">☕ Kopi</div>
+              <div class="voucher-title">Happy Hour Kopi</div>
+              <div class="voucher-desc">
+                Item kopi termurah di keranjang jadi gratis. Berlaku setiap hari
+                pukul 14.00–16.00.
+              </div>
+              <div class="voucher-code-row">
+                <div class="voucher-code">KOPIGAYO2</div>
+                <button
+                  class="btn-copy"
+                  id="btn-v1"
+                  onclick="copyKode('KOPIGAYO2', 'btn-v1')"
+                >
+                  Salin
+                </button>
+              </div>
+              <div
+                class="voucher-exp"
+                style="margin-top: 8px; font-size: 10px; color: var(--muted)"
+              >
+                Berlaku s/d 31 Mei 2026
+              </div>
+            </div>
+            <div class="voucher-divider"></div>
+            <div class="voucher-right">
+              <div class="voucher-disc">B1G1</div>
+              <div class="voucher-disc-label">Kopi<br />Gratis</div>
+              <div class="voucher-status aktif">Aktif</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="voucher-card">
+          <div class="voucher-strip green"></div>
+          <div class="voucher-inner">
+            <div class="voucher-left">
+              <div class="voucher-type">🍽️ Makanan</div>
+              <div class="voucher-title">Diskon Makan Siang</div>
+              <div class="voucher-desc">
+                Potongan Rp 5.000 untuk setiap pembelian menu makanan. Min. 1
+                item makanan.
+              </div>
+              <div class="voucher-code-row">
+                <div class="voucher-code">MAKAN5K</div>
+                <button
+                  class="btn-copy"
+                  id="btn-v2"
+                  onclick="copyKode('MAKAN5K', 'btn-v2')"
+                >
+                  Salin
+                </button>
+              </div>
+              <div
+                class="voucher-exp"
+                style="margin-top: 8px; font-size: 10px; color: var(--muted)"
+              >
+                Berlaku s/d 30 Jun 2026
+              </div>
+            </div>
+            <div class="voucher-divider"></div>
+            <div class="voucher-right">
+              <div class="voucher-disc">5K</div>
+              <div class="voucher-disc-label">Potongan<br />Rp 5.000</div>
+              <div class="voucher-status aktif">Aktif</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="voucher-card">
+          <div class="voucher-strip blue"></div>
+          <div class="voucher-inner">
+            <div class="voucher-left">
+              <div class="voucher-type">🎂 Ulang Tahun</div>
+              <div class="voucher-title">Birthday Treat</div>
+              <div class="voucher-desc">
+                Gratis 1 kopi Gayo di hari ulang tahunmu. Tunjukkan KTP saat
+                klaim.
+              </div>
+              <div class="voucher-code-row">
+                <div class="voucher-code">BDAYKUPIE</div>
+                <button
+                  class="btn-copy"
+                  id="btn-v3"
+                  onclick="copyKode('BDAYKUPIE', 'btn-v3')"
+                >
+                  Salin
+                </button>
+              </div>
+              <div
+                class="voucher-exp"
+                style="margin-top: 8px; font-size: 10px; color: var(--muted)"
+              >
+                Berlaku sepanjang tahun
+              </div>
+            </div>
+            <div class="voucher-divider"></div>
+            <div class="voucher-right">
+              <div class="voucher-disc">FREE</div>
+              <div class="voucher-disc-label">1 Kopi<br />Gratis</div>
+              <div class="voucher-status aktif">Aktif</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="voucher-card expired">
+          <div class="voucher-strip red"></div>
+          <div class="voucher-inner">
+            <div class="voucher-left">
+              <div class="voucher-type">🎉 Spesial</div>
+              <div class="voucher-title">Promo Lebaran</div>
+              <div class="voucher-desc">
+                Diskon 30% untuk semua menu selama bulan Ramadan. Sudah
+                berakhir.
+              </div>
+              <div class="voucher-code-row">
+                <div class="voucher-code">LEBARAN30</div>
+              </div>
+              <div
+                class="voucher-exp"
+                style="margin-top: 8px; font-size: 10px; color: var(--muted)"
+              >
+                Berakhir 5 Apr 2026
+              </div>
+            </div>
+            <div class="voucher-divider"></div>
+            <div class="voucher-right">
+              <div class="voucher-disc">30%</div>
+              <div class="voucher-disc-label">Semua<br />Menu</div>
+              <div class="voucher-status habis">Habis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="promo-info-strip">
+        <strong>📌 Cara Pakai Voucher:</strong><br />
+        1. Salin kode voucher di atas<br />
+        2. Buka halaman Keranjang<br />
+        3. Masukkan kode di kolom voucher dan tekan "Pakai"<br />
+        4. Diskon otomatis dihitung!
+      </div>
+    </div>
+
+    <!-- ===== DETAIL SHEET ===== -->
+    <div id="sheet-overlay" class="sheet-overlay" onclick="tutupSheet()"></div>
+    <div id="detail-sheet" class="sheet">
+      <div class="sheet-handle"></div>
+      <div style="position:relative;">
+        <img id="sheet-img" class="sheet-img" src="" alt="" />
+        <button class="wishlist-in-sheet" id="sheet-wishlist-btn" onclick="toggleWishlistFromSheet()">🤍</button>
+        <button class="share-btn" id="sheet-share-btn" onclick="shareMenuItem()">↗</button>
+      </div>
+      <div class="sheet-body">
+        <div class="sheet-cat" id="sheet-cat"></div>
+        <div class="sheet-title" id="sheet-title"></div>
+        <div class="sheet-desc" id="sheet-desc"></div>
+        <div class="sheet-price-row">
+          <div class="sheet-price" id="sheet-price"></div>
+          <div class="qty-control">
+            <button class="qty-btn" onclick="ubahQty(-1)">−</button>
+            <div class="qty-num" id="sheet-qty">1</div>
+            <button class="qty-btn" onclick="ubahQty(1)">+</button>
+          </div>
+        </div>
+        <!-- Note field -->
+        <textarea
+          id="sheet-note"
+          class="sheet-note"
+          placeholder="Catatan (contoh: kurang manis, extra es)"
+          rows="2"
+        ></textarea>
+        <button class="btn-add-cart" onclick="tambahDariSheet()">
+          Tambah ke Keranjang
+        </button>
+      </div>
+    </div>
+
+    <!-- FAB -->
+    <button
+      id="cart-fab"
+      class="cart-fab"
+      onclick="goPage('keranjang', 'nav-keranjang')"
+    >
+      🛒 <span class="fab-badge" id="fab-badge">0</span>
+    </button>
+
+    <!-- BACK TO TOP -->
+    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Kembali ke atas">↑</button>
+
+    <!-- TOAST -->
+    <div id="toast" class="toast"></div>
+
+    <!-- CHECKOUT CONFIRM MODAL -->
+    <div id="checkout-modal-overlay" class="checkout-modal-overlay" onclick="closeCheckoutModal(event)">
+      <div class="checkout-modal">
+        <div class="checkout-modal-handle"></div>
+        <!-- Progress Steps -->
+        <div class="checkout-progress">
+          <div class="checkout-step done">
+            <div class="checkout-step-circle">✓</div>
+            <div class="checkout-step-label">Pilih</div>
+          </div>
+          <div class="checkout-step-line"></div>
+          <div class="checkout-step done">
+            <div class="checkout-step-circle">✓</div>
+            <div class="checkout-step-label">Keranjang</div>
+          </div>
+          <div class="checkout-step-line"></div>
+          <div class="checkout-step active">
+            <div class="checkout-step-circle">3</div>
+            <div class="checkout-step-label">Konfirmasi</div>
+          </div>
+          <div class="checkout-step-line"></div>
+          <div class="checkout-step">
+            <div class="checkout-step-circle">4</div>
+            <div class="checkout-step-label">WhatsApp</div>
+          </div>
+        </div>
+        <h3>Konfirmasi Pesanan</h3>
+        <p class="modal-sub">Pastikan pesananmu sudah benar sebelum dikirim via WhatsApp</p>
+
+        <!-- Input Nama + Meja/Takeaway -->
+        <div class="checkout-input-group">
+          <input id="checkout-nama" class="checkout-input" type="text" placeholder="Nama kamu (wajib)" autocomplete="name" />
+          <div class="checkout-type-row">
+            <button class="checkout-type-btn active" id="type-dine" onclick="setOrderType('dine')">🪑 Makan di Tempat</button>
+            <button class="checkout-type-btn" id="type-take" onclick="setOrderType('take')">🥡 Bawa Pulang</button>
+          </div>
+          <input id="checkout-meja" class="checkout-input" type="text" placeholder="Nomor meja (opsional)" style="margin-top:8px;" />
+        </div>
+
+        <div class="checkout-summary" id="checkout-summary-list"></div>
+        <div class="checkout-btn-row">
+          <button class="checkout-btn-cancel" onclick="closeCheckoutModal()">Ubah</button>
+          <button class="checkout-btn-confirm" onclick="confirmCheckout()">
+            💬 Pesan via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox-overlay" class="lightbox-overlay" onclick="closeLightbox(event)">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1,event)">‹</button>
+      <img id="lightbox-img" class="lightbox-img" src="" alt="">
+      <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1,event)">›</button>
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- ============ WISHLIST ============ -->
+    <div id="wishlist" class="page">
+      <div class="section-pad">
+        <div class="section-label" style="margin-bottom:18px">Favorit <em>Kamu</em></div>
+        <div id="wishlist-grid" class="menu-grid"></div>
+      </div>
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav">
+      <div id="nav-home" class="nav-item active" onclick="goPage('home', 'nav-home')">
+        <span class="nav-icon">🏠</span>Home
+      </div>
+      <div id="nav-menu" class="nav-item" onclick="goPage('menu', 'nav-menu')">
+        <span class="nav-icon">☕</span>Menu
+      </div>
+      <div id="nav-promo" class="nav-item" onclick="goPage('promo', 'nav-promo')">
+        <span class="nav-icon">🎁</span>Promo
+      </div>
+      <div id="nav-keranjang" class="nav-item" onclick="goPage('keranjang', 'nav-keranjang')">
+        <span class="nav-icon">🛒</span>Keranjang
+      </div>
+      <div id="nav-wishlist" class="nav-item" onclick="goPage('wishlist','nav-wishlist')">
+        <span class="nav-icon">❤️</span>Favorit
+      </div>
+    </nav>
+    <script src="script.js"></script>
+  </body>
+</html>
+ 
